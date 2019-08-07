@@ -5,6 +5,7 @@ services:
     environment:
       RAILS_ENV: development
       TZ: Asia/Tokyo
+      DATABASE_PASSWORD: $DATABASE_PASSWORD
     volumes:
       - '.:/usr/src/app'
     ports:
@@ -16,7 +17,7 @@ services:
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD: $DATABASE_PASSWORD
     ports:
       - '3306:3306'
     volumes:
