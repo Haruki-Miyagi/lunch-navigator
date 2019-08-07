@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build: .
+    environment:
+      RAILS_ENV: development
+      TZ: Asia/Tokyo
+    volumes:
+      - '.:/usr/src/app'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mysql
+    stdin_open: true
+    tty: true
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD:
+    ports:
+      - '3306:3306'
+    volumes:
+      - 'mysql-data:/var/lib/mysql'
+      - './log/mysql:/var/log/mysql'
+volumes:
+  mysql-data:
+    driver: local
