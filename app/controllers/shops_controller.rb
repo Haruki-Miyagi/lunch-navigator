@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    response = Gurunabi.fetch_gurunabi_api(
+    response = Lunchmap.fetch(
       private_room: 1,
       card: 1,
       lunch: 1,
