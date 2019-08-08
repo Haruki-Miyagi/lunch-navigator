@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :lunchmaps
+  root controller: :shops, action: :index
+  resources :shops, only:[:index]
 
   get 'dashboard' => 'home#dashboard'
   get 'auth/auth0', as: 'authentication'
