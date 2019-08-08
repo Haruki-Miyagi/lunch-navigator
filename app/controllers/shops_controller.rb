@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
   
   
   def index
-    @hellow = "hello";
+    @resouces = Gurunabi.fetch_gurunabi_api(1, 1, 1)
   end
 end
     
