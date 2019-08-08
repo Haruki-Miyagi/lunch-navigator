@@ -11,5 +11,7 @@ class ShopsController < ApplicationController
     )
 
     @resouces = response['rest']
+
+    @name = params[:name]
   end
 end
