@@ -1,24 +1,22 @@
-# README
+### 起動方法
+1. 環境変数の設定
+`cp .envrc.sample .envrc` をして各自設定してください。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+.envrcファイル
+```envrc:.envrc
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=password
+DATABASE_HOST=mysql
+```
 
-Things you may want to cover:
+2. ビルドする
+```
+$ docker-compose build
+$ docker-compose up -d
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3. DBセットアップ
+```
+$ docker-compose run --rm web rake db:create
+$ docker-compose run --rm web rake db:migrate
+```
