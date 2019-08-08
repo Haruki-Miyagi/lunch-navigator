@@ -2,28 +2,36 @@
 <%= link_to('Log In', authentication_path, class: 'nav-link') %>
 
 <table class="table table-striped">
-        <tr>
-            <th>おみせ</th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    <% @resouces.each do |resouce| %>
-        <tr>
-            <td>
-                <%=resouce['name']%> <!-- お店の名前-->
-                <br> 
-                <img src= "<%=resouce['image_url']['shop_image1']%>" ></td> <!-- 画像 -->
-            </td> <!--お店の名前-->
-            <td>
-                <%=resouce['pr']['pr_short']%><!--お店PR_short --> 
-                <br>
-                <br>
-                <%=resouce['address']%> <!-- アクセス情報 -->
-            </td>
-            <td></td>
-            <td></td>
-
-        </tr>
+    <tr>
+        <th>おみせ</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <% if @errors.present? %>
+        <ul class="list-group">
+            <% @errors.each do |error| %>
+                <li class="list-group-item list-group-item-danger"><%= error['message'] %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <% if @resouces.present? %>
+        <% @resouces.each do |resouce| %>
+            <tr>
+                <td>
+                    <%=resouce['name']%> <!-- お店の名前-->
+                    <br>
+                    <img src= "<%=resouce['image_url']['shop_image1']%>" ></td> <!-- 画像 -->
+                </td> <!--お店の名前-->
+                <td>
+                    <%=resouce['pr']['pr_short']%><!--お店PR_short -->
+                    <br>
+                    <br>
+                    <%=resouce['address']%> <!-- アクセス情報 -->
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+        <% end %>
     <% end %>
 </table>

@@ -11,5 +11,6 @@ class ShopsController < ApplicationController
     )
 
     @resouces = response['rest']
+    @errors = response['error']
   end
 end
