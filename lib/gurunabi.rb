@@ -1,5 +1,3 @@
-require 'net/https'
-
 class Gurunabi
   def self.fetch_gurunabi_api(private_room, card, lunch)
     # ぐるなびapiの情報取得
