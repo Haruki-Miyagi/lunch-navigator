@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 export DATABASE_USERNAME=root
 export DATABASE_PASSWORD=password
 export DATABASE_HOST=mysql
+=======
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=password
+DATABASE_HOST=mysql
+>>>>>>> 1dec90e1efa79bdae7d056f992b8095fe134c0b8
