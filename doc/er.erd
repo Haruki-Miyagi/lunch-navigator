@@ -1,0 +1,33 @@
+# [erd](https://github.com/BurntSushi/erd)
+# $ erd -i er.erd -o er.png
+
+title {label: "lunch-navigator", size: "20"}
+
+# ---------- Entities ----------
+
+[users] {bgcolor: "#ffffff", label: "ユーザー"}
+  *id
+  account {label: "string:uniq アカウント(メールアドレスとか)"}
+  created_at {label: "datetime 作成日時"}
+  updated_at {label: "datetime 更新日時"}
+
+[stars] {bgcolor: "#ffffff", label: "スター gnavi_shop_idとuser_idでユニーク"}
+  *id
+  user_id {label: "user:references ユーザーID"}
+  gnavi_shop_id {label: "string ぐるなび店ID"}
+  created_at {label: "datetime 作成日時"}
+  updated_at {label: "datetime 更新日時"}
+
+[reviews] {bgcolor: "#ffffff", label: "レビュー gnavi_shop_idとuser_idでユニーク"}
+  *id
+  user_id {label: "user:references ユーザーID"}
+  gnavi_shop_id {label: "string ぐるなび店ID"}
+  score {label: "integer スコア 1~5"}
+  comment {label: "string コメント"}
+  created_at {label: "datetime 作成日時"}
+  updated_at {label: "datetime 更新日時"}
+
+# ---------- Relationships ----------
+
+users 1--* reviews
+users 1--* stars
