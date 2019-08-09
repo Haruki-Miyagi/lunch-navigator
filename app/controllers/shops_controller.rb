@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    response = Gurunabi.fetch_gurunabi_api(
+    response = Lunchmap.fetch(
       private_room: params[:private_room],
       card: params[:card],
       lunch: params[:lunch],
@@ -11,5 +11,6 @@ class ShopsController < ApplicationController
     )
 
     @resouces = response['rest']
+    @errors = response['error']
   end
 end
