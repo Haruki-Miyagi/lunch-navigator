@@ -71,6 +71,9 @@
                 <%= radio_button_tag :private_room, 1  %>
                 <%= label_tag("private_room_1" , "個室あり") %>
 
+                <%= hidden_field_tag :latitude %>
+                <%= hidden_field_tag :longitude %>
+
                 <%= submit_tag("検索") %>
               <% end %>
 
