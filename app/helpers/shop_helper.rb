@@ -5,10 +5,10 @@ module ShopHelper
 
     if star.present?
       # 削除リンク
-      link = link_to(sanitize('<i class="glyphicon glyphicon-star-empty"></i>'), star_path(star), method: :delete)
+      link = link_to(sanitize('★'), star_path(star), method: :delete)
     else
       # 登録リンク
-      link = link_to(sanitize('<i class="glyphicon glyphicon-star"></i>'), stars_path(gnavi_shop_id: resouce['id']), method: :post)
+      link = link_to(sanitize('⭐'), stars_path(gnavi_shop_id: resouce['id']), method: :post)
     end
     
     link + content_tag(:span, star_count)

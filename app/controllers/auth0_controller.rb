@@ -6,6 +6,6 @@ class Auth0Controller < ApplicationController
 
   def logout
     reset_session
-    redirect_to authentication_path
+    redirect_to root_path
   end
 end
