@@ -29,6 +29,14 @@
                     <br>
                     <br>
                     <%=resouce['address']%> <!-- アクセス情報 -->
+                    <br>
+                    <br>
+                    電話番号 : <a href="tel:<%= resouce['tel'].gsub('-', '') %>"><%=resouce['tel']%></a> 
+                    <br>
+                    <br>
+                    ホームページ : <a href="<%= resouce['url']%>"> <%=resouce['url']%> </a>
+ 
+
                 </td>
                 <td></td>
             </tr>
