@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ /* header分だけ下に */
+ body{
+    padding-top: 60px;
+ }
