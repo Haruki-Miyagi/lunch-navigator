@@ -5,10 +5,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     if signed_user?
-      @current_user ||= session[:userinfo]
+      @current_user ||= User.find_or_create_by(account: session[:userinfo]['uid'])
     else
-      @auth_path = "#{controller_path}##{action_name}"
-      redirect_to authentication_path if @auth_path != 'auth0#callback'
+      redirect_to authentication_path
     end
   end
 
