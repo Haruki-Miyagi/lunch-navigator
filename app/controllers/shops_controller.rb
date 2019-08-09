@@ -4,8 +4,8 @@ class ShopsController < ApplicationController
       private_room: params[:private_room],
       card: params[:card],
       lunch: params[:lunch],
-      latitude: params.fetch(:latitude, 26.212576),
-      longitude: params.fetch(:longitude, 127.679021),
+      latitude: params[:latitude].present? ? params[:latitude] : 26.212576,
+      longitude: params[:longitude].present? ? params[:longitude] : 127.679021,
       # 緯度/経度からの検索範囲(半径) 1:300m,2:500m,3:1000m,4:2000m,5=3000m
       range: 5,
     )
