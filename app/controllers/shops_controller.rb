@@ -1,9 +1,9 @@
 class ShopsController < ApplicationController
   def index
     response = Gurunabi.fetch_gurunabi_api(
-      private_room: 1,
-      card: 1,
-      lunch: 1,
+      private_room: params[:private_room],
+      card: params[:card],
+      lunch: params[:lunch],
       latitude: 26.212576,
       longitude: 127.679021,
       # 緯度/経度からの検索範囲(半径) 1:300m,2:500m,3:1000m,4:2000m,5=3000m
@@ -11,7 +11,5 @@ class ShopsController < ApplicationController
     )
 
     @resouces = response['rest']
-
-    @name = params[:name]
   end
 end

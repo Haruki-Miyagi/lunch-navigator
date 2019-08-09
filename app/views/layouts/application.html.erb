@@ -41,8 +41,26 @@
             </li>
             -->
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-              <ul class="navbar-nav mr-auto">
+              <%= form_tag controller: "shops", action: "index" do  %>
+                <%= radio_button_tag :card, 0  %>
+                <%= label_tag("card_0" , "カード指定なし") %>
+                <%= radio_button_tag :card, 1  %>
+                <%= label_tag("card_1" , "カード可") %>
 
+                <%= radio_button_tag :lunch, 0  %>
+                <%= label_tag("lunch_0" , "ランチ指定なし") %>
+                <%= radio_button_tag :lunch, 1  %>
+                <%= label_tag("lunch_1" , "ランチ") %>
+
+                <%= radio_button_tag :private_room, 0  %>
+                <%= label_tag("private_room_0" , "個室指定なし") %>
+                <%= radio_button_tag :private_room, 1  %>
+                <%= label_tag("private_room_1" , "個室あり") %>
+
+                <%= submit_tag("検索") %>
+              <% end %>
+
+              <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">予算</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown01">
