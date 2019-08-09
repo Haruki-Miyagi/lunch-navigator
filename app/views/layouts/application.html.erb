@@ -8,11 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -56,26 +56,6 @@
             -->
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
               <%= form_tag controller: "shops", action: "index" do  %>
-                <%= radio_button_tag :card, 0  %>
-                <%= label_tag("card_0" , "カード指定なし") %>
-                <%= radio_button_tag :card, 1  %>
-                <%= label_tag("card_1" , "カード可") %>
-
-                <%= radio_button_tag :lunch, 0  %>
-                <%= label_tag("lunch_0" , "ランチ指定なし") %>
-                <%= radio_button_tag :lunch, 1  %>
-                <%= label_tag("lunch_1" , "ランチ") %>
-
-                <%= radio_button_tag :private_room, 0  %>
-                <%= label_tag("private_room_0" , "個室指定なし") %>
-                <%= radio_button_tag :private_room, 1  %>
-                <%= label_tag("private_room_1" , "個室あり") %>
-
-                <%= hidden_field_tag :latitude %>
-                <%= hidden_field_tag :longitude %>
-
-                <%= submit_tag("検索") %>
-              <% end %>
 
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
@@ -93,35 +73,38 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">部屋</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">大部屋</a>
-                    <a class="dropdown-item" href="#">小部屋</a>
+                    <%= radio_button_tag :private_room, 0  %>
+                    <%= label_tag("private_room_0" , "個室指定なし") %>
+                    <%= radio_button_tag :private_room, 1  %>
+                    <%= label_tag("private_room_1" , "個室あり") %>
+
                   </div>
                 </li>
 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ランチorディナ</a>
+                  <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ランチ</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">ランチ</a>
-                    <a class="dropdown-item" href="#">ディナー</a>
+                      <%= radio_button_tag :lunch, 0  %>
+                      <%= label_tag("lunch_0" , "ランチ指定なし") %>
+                      <%= radio_button_tag :lunch, 1  %>
+                      <%= label_tag("lunch_1" , "ランチ") %>
                   </div>
                 </li>
 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">カード</a>
+                  <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">カード支払い</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">カード可</a>
-                    <a class="dropdown-item" href="#">カード不可</a>
+                    <%= radio_button_tag :card, 0 %>
+                    <%= label_tag("card_0" , "カード指定なし") %>
+                    <%= radio_button_tag :card, 1  %>
+                    <%= label_tag("card_1" , "カード可") %>
                   </div>
                 </li>
-
-
               </ul>
               <form class="form-inline my-2 my-lg-0">
-                <!--テキスト検索したいときに!!!
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                -->
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">条件検索</button>
+                <%= submit_tag("検索",class:"btn btn-outline-success my-2 my-sm-0") %>
               </form>
+              <% end %>
             </div>
 
 
