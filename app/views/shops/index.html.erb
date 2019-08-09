@@ -31,7 +31,17 @@
                     <%=resouce['address']%> <!-- アクセス情報 -->
                 </td>
                 <td></td>
-                <td></td>
+            </tr>
+            <tr>
+                <td>評判</td>
+                <td>
+                    <% Review.where(gnavi_shop_id: resouce['id']).each do |review| %>
+                    <dl class="dl-horizontal">
+                        <dt><%= review.user.account %></dt>
+                        <dd><%= review.comment %></dd>
+                    </dl>
+                    <% end %>
+                <td>
             </tr>
         <% end %>
     <% end %>
