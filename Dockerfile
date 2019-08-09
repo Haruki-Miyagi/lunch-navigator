@@ -11,7 +11,7 @@ RUN \
   apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* /tmp/* /var/tmp/*
 
 COPY Gemfile $APP_ROOT/
-COPY Gemfile.lock $APP_ROOT/  
+COPY Gemfile.lock $APP_ROOT/
 RUN \
   echo 'gem: --no-document' >> ~/.gemrc && \
   cp ~/.gemrc /etc/gemrc && \
@@ -26,5 +26,4 @@ COPY . $APP_ROOT/
 RUN mkdir -p log
 
 EXPOSE 3000
-# CMD ["rails", "server", "-b", "0.0.0.0"]
-
+CMD ["rails", "server", "-b", "0.0.0.0"]
