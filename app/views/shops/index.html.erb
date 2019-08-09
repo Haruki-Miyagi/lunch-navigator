@@ -1,4 +1,5 @@
 <h1><%=@name%></h1>
+<div id='review-modal' class='modal fade' tabindex='-1' role='dialog' aria-hidden='true'></div>
 
 <table class="table table-striped">
     <tr>
@@ -33,7 +34,10 @@
                 <td></td>
             </tr>
             <tr>
-                <td>評判</td>
+                <td>
+                    評判
+                    <%= link_to 'レビュー', new_review_path(gnavi_shop_id: resouce['id']), :remote => true, class: 'btn btn-default' %>
+                </td>
                 <td>
                     <% Review.where(gnavi_shop_id: resouce['id']).each do |review| %>
                     <dl class="dl-horizontal">

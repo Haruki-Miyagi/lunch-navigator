@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews, only: [:new, :create, :destroy]
   resources :stars, only: [:create, :destroy]
   root controller: :shops, action: :index
   resources :shops, only:[:index]

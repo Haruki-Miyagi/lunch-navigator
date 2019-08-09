@@ -1,0 +1,25 @@
+<div class='modal-dialog' role='document'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
+      </button>
+      <h4 class='modal-title' id='exampleModalLabel'>レビュー投稿</h4>
+    </div>
+    
+    <div class='modal-body' style='padding-bottom: 0;'>
+      <%= form_with(model: resource, remote: true) do |form| %>
+
+        <div class='form-group'>
+          <%= form.label :comment, 'レビュー投稿' %>
+          <%= form.text_area :comment, class:'form-control', rows: 8 %>
+        </div>
+        <%= form.hidden_field :gnavi_shop_id,  value: resource.gnavi_shop_id %>
+
+        <div class='form-group'>
+          <%= form.submit class:'form-control btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
